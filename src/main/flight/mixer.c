@@ -113,6 +113,8 @@ static const motorMixer_t mixerQuadX[] = {
     { 1.0f, -1.0f, -1.0f,  1.0f },          // FRONT_R (M2)
     { 1.0f,  1.0f,  1.0f,  1.0f },          // REAR_L  (M3)
     { 1.0f,  1.0f, -1.0f, -1.0f },          // FRONT_L (M4)
+    { 1.0f,  0.0f,  0.0f, -1.0f },          // CENTER (M5)
+    { 1.0f,  0.0f,  0.0f,  1.0f },          // CENTER (M6)
 };
 
 #ifndef USE_QUAD_MIXER_ONLY
