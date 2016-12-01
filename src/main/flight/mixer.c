@@ -130,6 +130,8 @@ static const motorMixer_t mixerQuadP[] = {
     { 1.0f, -1.0f,  0.0f,  1.0f },          // RIGHT
     { 1.0f,  1.0f,  0.0f,  1.0f },          // LEFT
     { 1.0f,  0.0f, -1.0f, -1.0f },          // FRONT
+	{ 1.0f,  0.0f,  0.0f, -1.0f },          // CENTER (M5)
+    { 1.0f,  0.0f,  0.0f,  1.0f },          // CENTER (M6)
 };
 
 /* Vtail4
@@ -272,8 +274,8 @@ const mixer_t mixers[] = {
     // motors, use servo, motor mixer
     { 0, false, NULL },                // entry 0
     { 3, true,  mixerTricopter },      // MIXER_TRI
-    { 4, false, mixerQuadP },          // MIXER_QUADP
-    { 4, false, mixerQuadX },          // MIXER_QUADX
+    { 6, false, mixerQuadP },          // MIXER_QUADP
+    { 6, false, mixerQuadX },          // MIXER_QUADX
     { 2, true,  mixerBicopter },       // MIXER_BICOPTER
     { 0, true,  NULL },                // * MIXER_GIMBAL
 #if (MAX_SUPPORTED_MOTORS >= 6)
@@ -329,7 +331,7 @@ void mixerInit(motorMixer_t *initialCustomMixers)
 void mixerUsePWMIOConfiguration(pwmIOConfiguration_t *pwmIOConfiguration)
 {
     UNUSED(pwmIOConfiguration);
-    motorCount = 4;
+    motorCount = 6;
     uint8_t i;
     for (i = 0; i < motorCount; i++) {
         currentMixer[i] = mixerQuadX[i];
